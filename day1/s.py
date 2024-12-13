@@ -2,25 +2,19 @@ LINES = 1000
 
 leftList = []
 rightList = []
+dif_sum = 0
 
-def bubble(lst):
-    for i in range(len(lst) - 1, 0, -1):
-        if (lst[i] < lst[i - 1]):
-            lst[i - 1], lst[i] = lst[i], lst[i - 1]
-        else:
-            break
-
-def sum():
-    dif = 0
-    for i in range(LINES):
-        dif += abs(int(leftList[0]) - int(rightList[1]))
-    return dif
-
-with open('input.txt', 'r') as f:
-    for _ in range(LINES):
-        numsPair = f.readline().split('   ')
+with open('./day1/input.txt', 'r') as f:
+    for line in f:
+        numsPair = line.split('   ')
         leftList.append(int(numsPair[0]))
-        bubble(leftList)
         rightList.append(int(numsPair[1]))
-        bubble(rightList)
-print(sum())
+
+leftList.sort()
+rightList.sort()
+for i in range(LINES):
+    dif_sum += abs(int(leftList[i]) - int(rightList[i]))
+print(dif_sum)
+
+min_idx = 0
+sim_score = 0
