@@ -14,7 +14,7 @@ leftList.sort()
 rightList.sort()
 for i in range(LINES):
     dif_sum += abs(int(leftList[i]) - int(rightList[i]))
-print(dif_sum) # Part 1 answer
+print(dif_sum) # part 1 answer
 
 min_idx = 0
 sim_score = 0
@@ -27,4 +27,4 @@ for num in leftList:
             sim_score += num
         elif rightList[j] < num:
             min_idx += 1
-print(sim_score) # Part 2 answer
+print(sim_score) # part 2 answer
