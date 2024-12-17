@@ -21,7 +21,7 @@ def count(lst):
     else:
         return 0
 
-with open('./day2/input.txt', 'r') as f:
+with open('./day02/input.txt', 'r') as f:
     ans = 0
     for line in f:
         ans += count(line.split(' '))

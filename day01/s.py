@@ -4,7 +4,7 @@ leftList = []
 rightList = []
 dif_sum = 0
 
-with open('./day1/input.txt', 'r') as f:
+with open('./day01/input.txt', 'r') as f:
     for line in f:
         numsPair = line.split('   ')
         leftList.append(int(numsPair[0]))

@@ -8,7 +8,7 @@ def digits(num):
     else:
         return 1
 
-with open('./day3/input.txt', 'r') as f:
+with open('./day03/input.txt', 'r') as f:
     ans = 0
     for part in f.read().split('mul('):
         try:

@@ -1,15 +1,19 @@
 #!/bin/bash
 
-START=1
+START=7
 END=25
-for day in $(seq $START $END); do
-    if [ "$day" -lt 10 ]; then
-        day="0$day"
+for day_unpadded in $(seq $START $END); do
+    day=$(printf "%02d" $day_unpadded)
+    dir="day$day"
+    if [ ! -d "$dir" ]; then
+        mkdir "$dir"
     fi
-    mkdir "day$day"
     cd "day$day" || exit
-    touch input.txt
-    cat <<EOF > s.py 
+    if [ ! -f "input.txt" ]; then
+        touch input.txt
+    fi
+    if [ ! -f "s.py" ]; then
+        cat <<EOF > s.py
 with open('./day$day/input.txt', 'r') as f:
     ans1 = 0
     
@@ -19,5 +23,6 @@ with open('./day$day/input.txt', 'r') as f:
     
     print(ans2)
 EOF
+    fi
     cd ..
 done

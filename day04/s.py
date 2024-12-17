@@ -12,7 +12,7 @@ def present(lst, x, y, dx, dy):
     except IndexError:
         return 0
 
-with open('./day4/input.txt', 'r') as f:
+with open('./day04/input.txt', 'r') as f:
     ans = 0
     lst = f.read().split('\n')
     for j in range(len(lst)):

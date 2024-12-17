@@ -1,4 +1,4 @@
-with open('./day6/input.txt', 'r') as f:
+with open('./day06/input.txt', 'r') as f:
     locs = f.read()
     true_width = locs.index('\n')
     width = true_width + 1

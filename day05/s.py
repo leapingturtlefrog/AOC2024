@@ -1,4 +1,4 @@
-with open('./day5/input.txt', 'r') as f:
+with open('./day05/input.txt', 'r') as f:
     not_ordered_lst = []
     
     ans1 = 0
