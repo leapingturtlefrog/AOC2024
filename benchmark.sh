@@ -2,11 +2,21 @@
 
 # Usage: './benchmark.sh [number-of-days]'
 
-cmd=("hyperfine" "--warmup" "2" "--runs" "10" "--export-markdown" "benchmarks.md")
+if [ -z "$1" ]; then
+    echo "Must include number of days. Usage: './benchmark.sh [number-of-days]'"
+    exit 1
+fi
+
+cmd=("hyperfine" "--warmup" "2" "--runs" "10" "--time-unit" "millisecond" "--export-markdown" "benchmarks.md")
 for day_unpadded in $(seq 1 $1); do
     cmd+=("python ./day$(printf "%02d" $day_unpadded)/s.py")
 done
-"${cmd[@]}"
+if [ ${#cmd[@]} -gt 9 ]; then
+    "${cmd[@]}"
+else
+    echo "No scripts detected to be benchmarked."
+    exit 1
+fi
 
 sed -i -e "s%\`python ./day%%g" -e "s%/s.py\`%%g" -e "s/|[^|]*|[^|]*\$//" ./benchmarks.md
 sed -i -e "1c\| Day | Mean Execution Time (ms) | Min (ms) | Max (ms) | Peak Memory Usage (MB) |" \
