@@ -1,2 +1,4 @@
 ## Advent of Code 2024
-Tip toe. Tip toe.
+[adventofcode.com/2024](https://adventofcode.com/2024)
+
+Written in Python.
