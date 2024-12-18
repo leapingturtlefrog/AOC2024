@@ -30,7 +30,7 @@ if [ ${#cmd[@]} -gt 9 ]; then
         fi
     done
 
-    tail -n 1 temp_benchmarks.md >> ./benchmarks.md
+    tail -n +3 temp_benchmarks.md >> ./benchmarks.md
     rm ./temp_benchmarks.md
 else
     echo "No new scripts detected to be benchmarked."
