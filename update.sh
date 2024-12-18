@@ -11,7 +11,7 @@ next_day=$(( $(wc -l < ./benchmarks.md) - 1 ))
 cmd=("hyperfine" "--warmup" "2" "--runs" "5" "--time-unit" "millisecond" "--export-markdown" "temp_benchmarks.md")
 for day_unpadded in $(seq $next_day 25); do
     day=$(printf "%02d" $day_unpadded)
-    if [ -f "./day$day/input.txt" ] && [ $(wc -l < ./day$day/input.txt) -gt 0 ]; then
+    if [ -s "./day$day/input.txt" ]; then
         cmd+=("python ./day$day/s.py")
     fi
 done
@@ -21,7 +21,7 @@ if [ ${#cmd[@]} -gt 9 ]; then
 
     for day_unpadded in $(seq $next_day 25); do
         day=$(printf "%02d" $day_unpadded)
-        if [ -f "./day$day/input.txt" ] && [ $(wc -l < ./day$day/input.txt) -gt 0 ]; then
+        if [ -s "./day$day/input.txt" ]; then
             memory_usage_kb=$(/usr/bin/time -f "%M" python ./day${day}/s.py 2>&1 | tail -n 1)
             memory_usage_mb=$(echo "scale=2; $memory_usage_kb / 1024" | bc)
             echo "Memory usage for day ${day}: ${memory_usage_mb} MB"

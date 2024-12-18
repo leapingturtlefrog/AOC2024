@@ -23,7 +23,7 @@ with open('./day09/input.txt', 'r') as f:
     print(ans1)
     
     ans2 = 0
-    min_pt = ll_pt = lr_pt = input_lst[0]
+    min_pt = ll_pt = lr_pt = lst2.index(0, input_lst[0])
     while True:
         if lst2[lr_pt] == 0:
             lr_pt += 1
@@ -33,29 +33,29 @@ with open('./day09/input.txt', 'r') as f:
     rr_pt = rl_pt = len(lst2) - 1
     while min_pt < rl_pt:
         while True:
-            if lst2[rl_pt] == lst2[rr_pt]:
+            if lst2[rl_pt - 1] == lst2[rr_pt]:
                 rl_pt -= 1
             else:
                 break
         space_needed = rr_pt - rl_pt + 1
         while free_space < space_needed and lr_pt < rl_pt:
             try:
-                ll_pt = lst2.index(0, ll_pt + 1)
+                ll_pt = lst2.index(0, lr_pt + 1)
             except ValueError:
                 break
             lr_pt = ll_pt
             while True:
-                if lst2[lr_pt] == 0:
+                if lr_pt + 1 < len(lst2) and lst2[lr_pt + 1] == 0:
                     lr_pt += 1
                 else:
                     break
             free_space = lr_pt - ll_pt + 1
-            if free_space >= space_needed:
-                for i in range(space_needed):
-                    lst2[ll_pt + i], lst2[rr_pt - i] = lst2[rr_pt - i], 0
+        if free_space >= space_needed and lr_pt < rl_pt:
+            for i in range(space_needed):
+                lst2[ll_pt + i], lst2[rr_pt - i] = lst2[rr_pt - i], 0
         ll_pt = lr_pt = min_pt = lst2.index(0, input_lst[0])
         while True:
-            if lst2[lr_pt] == 0:
+            if lr_pt + 1 < len(lst2) and lst2[lr_pt + 1] == 0:
                 lr_pt += 1
             else:
                 break
@@ -67,9 +67,5 @@ with open('./day09/input.txt', 'r') as f:
             else:
                 break
         rl_pt = rr_pt
-        print(lst2)
     ans2 = sum(pos * value for pos, value in enumerate(lst2))
     print(ans2)
-    # 3113520244347 low
-    # 6620308476548 high
-    # 15603095437040 high
