@@ -6,11 +6,12 @@ Solutions written in Python.
 Benchmark results for the days that I have completed:
 | Day | Mean Execution Time (ms) | Min (ms) | Max (ms) | Peak Memory Usage (MB) |
 |:---|---:|---:|---:|---:|
-| 01 | 19.6 ± 5.1 | 9.8 | 26.7 | 9.53 |
-| 02 | 16.3 ± 5.9 | 11.3 | 27.7 | 9.37 |
-| 03 | 21.9 ± 4.6 | 16.6 | 30.7 | 10.31 |
-| 04 | 42.4 ± 5.5 | 36.8 | 52.9 | 9.21 |
-| 05 | 119.4 ± 3.8 | 114.6 | 127.0 | 9.53 |
-| 06 | 21710.0 ± 438.4 | 21298.3 | 22474.5 | 10.15 |
+| 01 | 17.0 ± 4.7 | 11.4 | 23.3 | 9.37 |
+| 02 | 20.9 ± 6.2 | 13.0 | 26.8 | 9.37 |
+| 03 | 28.3 ± 6.0 | 20.2 | 36.8 | 10.31 |
+| 04 | 45.4 ± 2.9 | 41.6 | 48.2 | 9.06 |
+| 05 | 119.0 ± 3.5 | 115.1 | 124.5 | 9.53 |
+| 06 | 21997.8 ± 1282.1 | 21176.0 | 24258.1 | 9.84 |
+| 07 | 35959.9 ± 318.1 | 35697.8 | 36487.7 | 9.84 |
 
 *Note: I made the benchmark to work with any programming language executed on Linux or WSL using hyperfine and the built-in GNU time command.

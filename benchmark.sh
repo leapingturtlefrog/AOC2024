@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-cmd=("hyperfine" "--warmup" "2" "--runs" "10" "--time-unit" "millisecond" "--export-markdown" "benchmarks.md")
+cmd=("hyperfine" "--warmup" "2" "--runs" "5" "--time-unit" "millisecond" "--export-markdown" "benchmarks.md")
 for day_unpadded in $(seq 1 $1); do
     cmd+=("python ./day$(printf "%02d" $day_unpadded)/s.py")
 done
