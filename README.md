@@ -13,5 +13,6 @@ Benchmark results for the days that I have completed:
 | 05 | 119.0 ± 3.5 | 115.1 | 124.5 | 9.53 |
 | 06 | 21997.8 ± 1282.1 | 21176.0 | 24258.1 | 9.84 |
 | 07 | 35959.9 ± 318.1 | 35697.8 | 36487.7 | 9.84 |
+| 08 | 20.6 ± 3.7 | 15.5 | 25.1 | 9.06 |
 
 *Note: I made the benchmark to work with any programming language executed on Linux or WSL using hyperfine and the built-in GNU time command.
