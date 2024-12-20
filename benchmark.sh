@@ -7,7 +7,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-cmd=("hyperfine" "--warmup" "2" "--runs" "5" "--time-unit" "millisecond" "--export-markdown" "benchmarks.md")
+cmd=("hyperfine" "--warmup" "2" "--runs" "5" "--time-unit" "second" "--export-markdown" "benchmarks.md")
 for day_unpadded in $(seq 1 $1); do
     cmd+=("python ./day$(printf "%02d" $day_unpadded)/s.py")
 done
@@ -19,7 +19,7 @@ else
 fi
 
 sed -i -e "s%\`python ./day%%g" -e "s%/s.py\`%%g" -e "s/|[^|]*|[^|]*\$//" ./benchmarks.md
-sed -i -e "1c\| Day | Mean Execution Time (ms) | Min (ms) | Max (ms) | Peak Memory Usage (MB) |" \
+sed -i -e "1c\| Day | Execution Time (s) | Min (s) | Max (s) | Peak Memory Usage (MB) |" \
         -e "2c\|:---|---:|---:|---:|---:|" ./benchmarks.md
 
 for l_num in $(seq 3 $(($1 + 2))); do

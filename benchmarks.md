@@ -1,4 +1,4 @@
-| Day | Mean Execution Time (ms) | Min (ms) | Max (ms) | Peak Memory Usage (MB) |
+| Day | Execution Time (ms) | Min (ms) | Max (ms) | Peak Memory Usage (MB) |
 |:---|---:|---:|---:|---:|
 | 01 | 17.0 ± 4.7 | 11.4 | 23.3 | 9.37 |
 | 02 | 20.9 ± 6.2 | 13.0 | 26.8 | 9.37 |

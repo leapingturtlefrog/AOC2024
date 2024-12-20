@@ -8,7 +8,7 @@ fi
 
 next_day=$(( $(wc -l < ./benchmarks.md) - 1 ))
 
-cmd=("hyperfine" "--warmup" "2" "--runs" "5" "--time-unit" "millisecond" "--export-markdown" "temp_benchmarks.md")
+cmd=("hyperfine" "--warmup" "2" "--runs" "5" "--time-unit" "second" "--export-markdown" "temp_benchmarks.md")
 for day_unpadded in $(seq $next_day 25); do
     day=$(printf "%02d" $day_unpadded)
     if [ -s "./day$day/input.txt" ]; then
